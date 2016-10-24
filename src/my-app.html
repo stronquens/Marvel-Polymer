@@ -20,6 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 
 
 <dom-module id="my-app">
@@ -27,7 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- Personalizar estilos material con materialpalette y añadir a css de host -->
     <style>
       :host {
-        --app-primary-color: #f11f22;
+        --app-primary-color: #e92127;
         --app-secondary-color: grey;
 
         display: block;
@@ -88,8 +89,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             <!-- <div main-title>Marvel</div> -->
-            <img src="../images/Marvel-logo.png" alt="marvel logo" style="height: 80%"/>
+            <div main-title>
+                <img src="../images/Marvel-logo.png" alt="marvel logo" style="margin-top: 5px; height: 3rem;"/>
+            </div>
+            <paper-icon-button icon="icons:search"></paper-icon-button>
+            <paper-icon-button icon="icons:more-vert"></paper-icon-button>
           </app-toolbar>
+          
+          <paper-tabs selected="0" sticky autoselect>
+            <paper-tab>Character</paper-tab>
+            <paper-tab>Comics</paper-tab>
+            <paper-tab>Events</paper-tab>
+          </paper-tabs>
         </app-header>
 
         <iron-pages
