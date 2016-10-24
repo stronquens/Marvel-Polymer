@@ -21,6 +21,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/av-icons.html">
 
 
 <dom-module id="my-app">
@@ -63,6 +65,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         font-weight: bold;
       }
+      .marvel-logo {
+        position: absolute;
+        top: 13px;
+        left: calc(50% - 50px);
+        width: 100px;
+      }
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -85,21 +93,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Main content -->
       <app-header-layout has-scrolling-region>
 
-        <app-header condenses reveals effects="waterfall">
+        <app-header reveals shadow effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            <!-- <div main-title>Marvel</div> -->
             <div main-title>
-                <img src="../images/Marvel-logo.png" alt="marvel logo" style="margin-top: 5px; height: 3rem;"/>
+                <img class="marvel-logo" src="../images/Marvel-logo.png" alt="marvel logo"/>
             </div>
             <paper-icon-button icon="icons:search"></paper-icon-button>
             <paper-icon-button icon="icons:more-vert"></paper-icon-button>
           </app-toolbar>
           
-          <paper-tabs selected="{{page}}" attr-for-selected="name" sticky autoselect>
-            <paper-tab name="characters">Character</paper-tab>
-            <paper-tab name="credits">Comics</paper-tab>
-            <paper-tab>Events</paper-tab>
+          <paper-tabs selected="{{page}}" attr-for-selected="name">
+            <paper-tab name="credits"><iron-icon icon="home"></iron-icon></paper-tab>
+            <paper-tab name="characters"><iron-icon icon="av:recent-actors"></iron-icon></paper-tab>
+            <paper-tab name="view404"><iron-icon icon="av:library-books"></iron-icon></paper-tab>
           </paper-tabs>
         </app-header>
 
