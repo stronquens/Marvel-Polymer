@@ -96,9 +96,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-icon-button icon="icons:more-vert"></paper-icon-button>
           </app-toolbar>
           
-          <paper-tabs selected="0" sticky autoselect>
-            <paper-tab>Character</paper-tab>
-            <paper-tab>Comics</paper-tab>
+          <paper-tabs selected="{{page}}" attr-for-selected="name" sticky autoselect>
+            <paper-tab name="characters">Character</paper-tab>
+            <paper-tab name="credits">Comics</paper-tab>
             <paper-tab>Events</paper-tab>
           </paper-tabs>
         </app-header>
