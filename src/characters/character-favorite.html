@@ -1,0 +1,35 @@
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="character-favorite">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .favorito {
+        color: #ffd601;
+      }
+    </style>
+    <paper-icon-button 
+      id="star" 
+      icon="star"
+    ></paper-icon-button>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'character-favorite',
+      properties: {
+        isFav: {
+          type: Boolean,
+          value: false,
+          observer: 'cambiarClass'
+        }
+      },
+      cambiarClass: function(isFav) {
+        this.toggleClass('favorito', isFav, this.$.star);
+      }
+    });
+  </script>
+</dom-module>
