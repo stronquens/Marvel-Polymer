@@ -1,18 +1,18 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "./src/my-app.html",
   "fragments": [
-    "src/views/my-characters.html",
-    "src/views/my-credits.html",
-    "src/views/my-view404.html"
+    "./src/views/my-characters.html",
+    "./src/views/my-credits.html",
+    "./src/views/my-view404.html"
   ],
   "sourceGlobs": [
-   "src/**/*",
-   "images/**/*",
-   "bower.json"
+   "./src/**/*",
+   "./images/**/*",
+   "./bower.json"
   ],
   "includeDependencies": [
-    "manifest.json",
-    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+    "./manifest.json",
+    "./bower_components/webcomponentsjs/webcomponents-lite.min.js"
   ]
 }
