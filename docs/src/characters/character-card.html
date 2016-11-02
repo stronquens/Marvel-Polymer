@@ -1,0 +1,61 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="../util/rompe-cadena.html">
+<link rel="import" href="./character-favorite.html">
+
+</head><body><dom-module id="character-card">
+	<template>
+		<style>
+			:host {
+				display: flex;
+			}
+			
+			paper-card {
+				width: 250px;
+				--paper-card-header-image: {
+					width: 250px;
+				}
+				--paper-card-header-image: {
+					max-height: 220px;
+				}
+			}
+			
+			h1 {
+				@apply(--paper-font-headline);
+				color: var(--default-primary-color);
+				font-size: 1.2em;
+				font-family: roboto, sans-serif;
+			}
+			
+			.card-content p {
+				font-size: .9em;
+			}
+			
+			.sindescripcion {
+				color: #999;
+			}
+			
+			.card-actions {
+				color: #D7CCC8;
+			}
+		</style>
+
+        <paper-card image="[[character.thumbnail.path]].[[character.thumbnail.extension]]">
+            <div class="card-content">
+                <h1>[[character.name]]</h1>
+                <p>
+                    <rompe-cadena str="[[character.description]]" len="50"></rompe-cadena>
+                    </p><p hidden="[[character.description]]">Without description</p>
+                <p></p>
+            </div>
+            <div class="card-actions">
+                
+				<character-favorite is-fav="[[isFav]]" on-tap="toggleFav" id="[[character.id]]"></character-favorite>
+            </div>
+        </paper-card>
+
+	</template>
+
+	<script>Polymer({is:"character-card",properties:{character:Object,favoritos:Array,isFav:{type:Boolean,value:!1}},observers:["definirFav(character, favoritos)"],definirFav:function(i,a){a.indexOf(i.id)==-1?this.set("isFav",!1):this.set("isFav",!0)},toggleFav:function(i){this.isFav=!this.isFav,this.fire("toggle-fav",{isFav:this.isFav,id:this.character.id})}});</script>
+</dom-module></body></html>

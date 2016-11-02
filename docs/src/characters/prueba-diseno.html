@@ -1,0 +1,60 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../util/rompe-cadena.html">
+<link href="../../bower_components/iron-icons/iron-icons.html" rel="import">
+
+</head><body><dom-module id="prueba-diseno">
+	<template>
+		<style>
+			:host {
+				display: flex;
+			}
+			
+			paper-card {
+				width: 250px;
+				--paper-card-header-image: {
+					width: 250px;
+				}
+				--paper-card-header-image: {
+					max-height: 220px;
+				}
+			}
+			
+			h1 {
+				@apply(--paper-font-headline);
+				color: var(--default-primary-color);
+				font-size: 1.2em;
+				font-family: roboto, sans-serif;
+			}
+			
+			.card-content p {
+				font-size: .9em;
+			}
+			
+			.sindescripcion {
+				color: #999;
+			}
+			
+			.card-actions {
+				color: #D7CCC8;
+			}
+		</style>
+
+        <paper-card image="http://www.hobbyconsolas.com/sites/hobbyconsolas.com/public/styles/main_element/public/media/image/2014/09/380342-robert-downey-jr-afirma-que-no-hay-planes-iron-man-4.jpg?itok=c1ubVogD">
+            <div class="card-content">
+                <h1>Iron Man</h1>
+                <p>
+                    <rompe-cadena str="Una descripcion muy larga con muchas palabra sy que se extienda hasta la eternidad." len="50"></rompe-cadena>
+
+                </p>
+            </div>
+            <div class="card-actions">
+                <paper-icon-button icon="star"></paper-icon-button>
+            </div>
+        </paper-card>
+
+	</template>
+
+	<script>Polymer({is:"prueba-diseno"});</script>
+</dom-module></body></html>
