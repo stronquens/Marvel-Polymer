@@ -71,6 +71,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         left: calc(50% - 50px);
         width: 100px;
       }
+      paper-tab iron-icon {
+        margin-left: 0.5em;
+      }
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -84,9 +87,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Drawer content -->
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
-        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="characters" href="/characters">Personajes</a>
-          <a name="credits" href="/credits">Creditos</a>
+        <iron-selector selected="{{page}}" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a name="home" >Home</a>
+          <a name="explore" >Explore</a>
+          <a name="reader" >Reader</a>
         </iron-selector>
       </app-drawer>
 
@@ -99,14 +103,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <div main-title>
                 <img class="marvel-logo" src="../images/Marvel-logo.png" alt="marvel logo"/>
             </div>
-            <paper-icon-button icon="icons:search"></paper-icon-button>
             <paper-icon-button icon="icons:more-vert"></paper-icon-button>
           </app-toolbar>
           
           <paper-tabs selected="{{page}}" attr-for-selected="name">
-            <paper-tab name="credits"><iron-icon icon="home"></iron-icon></paper-tab>
-            <paper-tab name="characters"><iron-icon icon="av:recent-actors"></iron-icon></paper-tab>
-            <paper-tab name="view404"><iron-icon icon="av:library-books"></iron-icon></paper-tab>
+            <paper-tab name="home">Home<iron-icon icon="home"></iron-icon></paper-tab>
+            <paper-tab name="explore">Explore<iron-icon icon="av:recent-actors"></iron-icon></paper-tab>
+            <paper-tab name="reader">Reader<iron-icon icon="av:library-books"></iron-icon></paper-tab>
           </paper-tabs>
         </app-header>
 
@@ -115,8 +118,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-characters name="characters"></my-characters>
-          <my-credits name="credits"></my-credits>
+
+          <my-home name="home"></my-home>
+          <my-explore name="explore"></my-explore>
+          <my-reader name="reader"></my-reader>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
@@ -140,7 +145,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'characters';
+        this.page = page || 'home';
       },
 
       _pageChanged: function(page) {

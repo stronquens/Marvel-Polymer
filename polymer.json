@@ -2,8 +2,9 @@
   "entrypoint": "index.html",
   "shell": "./src/my-app.html",
   "fragments": [
-    "./src/views/my-characters.html",
-    "./src/views/my-credits.html",
+    "./src/views/my-home.html",
+    "./src/views/my-explore.html",
+    "./src/views/my-reader.html",    
     "./src/views/my-view404.html"
   ],
   "sourceGlobs": [
