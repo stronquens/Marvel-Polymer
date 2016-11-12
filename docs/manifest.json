@@ -3,17 +3,17 @@
   "short_name": "Marvel Polymer",
   "start_url": "./?homescreen=1",
   "display": "fullscreen",
-  "theme_color": "#fbd789",
-  "background_color": "#fbd789",
+  "theme_color": "#fff",
+  "background_color": "#fff",
   "icons": [
     {
-      "src": "./images/manifest2/icon-192x192.png",
-      "sizes": "192x192",
+      "src": "./images/manifest2/icon-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "./images/manifest2/4-intro.png",
-      "sizes": "196x396",
+      "src": "./images/manifest2/icon-192x192.png",
+      "sizes": "192x192",
       "type": "image/png"
     }
   ]
