@@ -28,7 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="my-app">
   <template>
     <!-- Personalizar estilos material con materialpalette y añadir a css de host -->
-    <style>
+    <style is="custom-style">
       :host {
         --app-primary-color: #e92127;
         --app-secondary-color: grey;
@@ -74,6 +74,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       paper-tab iron-icon {
         margin-left: 0.5em;
       }
+     .link {
+        text-decoration: none;
+        color: white;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);       
+     }
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -87,10 +93,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Drawer content -->
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
-        <iron-selector selected="{{page}}" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="home" >Home</a>
-          <a name="explore" >Explore</a>
-          <a name="reader" >Reader</a>
+        
+        <iron-selector  selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a href="/" name="home" >Home</a>
+          <a href="/explore" name="explore" >Explore</a>
+          <a href="/reader" name="reader" >Reader</a>
         </iron-selector>
       </app-drawer>
 
@@ -105,11 +112,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
             <paper-icon-button icon="icons:more-vert"></paper-icon-button>
           </app-toolbar>
-          
-          <paper-tabs selected="{{page}}" attr-for-selected="name">
-            <paper-tab name="home">Home<iron-icon icon="home"></iron-icon></paper-tab>
-            <paper-tab name="explore">Explore<iron-icon icon="av:recent-actors"></iron-icon></paper-tab>
-            <paper-tab name="reader">Reader<iron-icon icon="av:library-books"></iron-icon></paper-tab>
+
+        <paper-tabs selected="[[page]]" attr-for-selected="name">
+            <paper-tab name="home" tabindex="-1" link>
+              <a href="/" class="link" tabindex="-1">Home<iron-icon icon="home"></iron-icon></a>
+            </paper-tab>
+            <paper-tab name="explore" link>
+              <a href="/explore" class="link" tabindex="-1">Explore<iron-icon icon="av:recent-actors"></iron-icon></a>
+            </paper-tab>
+            <paper-tab name="reader" link>
+              <a href="/reader" class="link" tabindex="-1">Reader<iron-icon icon="av:library-books"></iron-icon></a>
+            </paper-tab>
           </paper-tabs>
         </app-header>
 
