@@ -21,15 +21,15 @@
 				}
 			}
 			
-			h1 {
+			h3 {
 				@apply(--paper-font-headline);
 				color: var(--default-primary-color);
-				font-size: 1.2em;
+				font-size: 1em;
 				font-family: roboto, sans-serif;
 			}
 			
 			.card-content p {
-				font-size: .9em;
+				font-size: .8em;
 			}
 			
 			.sindescripcion {
@@ -43,7 +43,7 @@
 
         <paper-card image="[[character.thumbnail.path]].[[character.thumbnail.extension]]">
             <div class="card-content">
-                <h1>[[character.name]]</h1>
+                <h3>[[character.name]]</h3>
                 <p>
                     <rompe-cadena
                     str="[[character.description]]"

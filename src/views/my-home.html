@@ -14,19 +14,70 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="my-home">
   <template>
     <style include="shared-styles">
-      :host {
-        display: block;
-
-        padding: 10px;
+      :host{
+        display: flex;         
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;  
+        align-items: center;
+      }
+      .container.card{
+        max-width: 500px;
       }
     </style>
+      <div class="card">
+        <div class="circle">1</div>
+        <h3>Bienvenido</h3>
+        <hr/>
+        <p>
+          En esta web podras consultar toda la informacion acerca de tus heroes marvel favoritos.
+        </p>
+        <p>
+          Del mismo modo podras guardar tus comics y hacer un seguimiento de los leidos o que te gustaria<br/>
+          leer en un futuro.
+        </p>  
+        <p>
+          Esta web es un experimento sobre progressive web apps hechas con Polymer.<br/>
+          Por lo tanto podras:
+          <ul>
+            <li>Instalar la aplicaion en tu movil para acceder de forma mas rapida.</li>
+            <li>Guardar informacion en tu dispositivo para acceder de forma offline.</li>
+            <li>Podras recibir notificaciones si lo deseas.</li>
+          </ul>
+        </p>
+      </div>
 
-    <div class="card">
-      <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
-    </div>
+      <div class="card">
+        <div class="circle">2</div>
+        <h3>** Pre Alpha version **</h3>
+        <hr/>
+        <p>Esta web app requiere una conexion a los servidores de Marvel que esta limitada a 
+          1000 peticiones por dia.
+        </p>
+        <p>A su vez esta web esta obligada a redirigir a la pagina de Marvel en diversos enlaces.<br/>
+        <a href="www.marvel.com">www.marvel.com</a>
+        </p>
+        <p>"Data provided by Marvel. © 2014 Marvel"</p>
+      </div>
+
+
+      <div class="card">
+        <div class="circle">3</div>
+        <h3>Social</h3>
+        <hr/>
+        <p>
+          Esta aplicacion es Open Source por lo tanto podras acceder a todo el codigo de la aplicacion o
+          hacer tus aportaciones <a href="https://github.com/stronquens/Marvel-Polymer">aqui</a>. 
+        </p>
+        <p>
+          Puedes seguirme o ponerte en contacto conmigo a traves de:
+          <ul>
+            <li><a href="https://twitter.com/Armandox_94">Twitter</a></li>
+            <li><a href="https://plus.google.com/107991969104423282943?hl=es-419">Google+</a></li>
+            <li><a href="https://github.com/stronquens">Github</a></li>
+          </ul>
+        <p>
+      </div>
   </template>
 
   <script>
