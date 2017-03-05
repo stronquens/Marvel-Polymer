@@ -16,7 +16,21 @@
 				display: block;
 				padding: 10px;
 			}
+      .attribution{
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 5px;
+        z-index: 1;
+        background-color: dodgerblue;
+        color: white;
+        opacity: 0.9;
+      }
 		</style>
+      <div class="attribution">
+        "Data provided by Marvel. © 2014 Marvel"
+      </div>
 
       <iron-ajax
         auto
@@ -45,8 +59,6 @@
         favoritos="[[favoritos]]"
         on-toggle-fav="toggleFav"
       ></character-list>
-
-
 	</template>
 
 	<script>
