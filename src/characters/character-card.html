@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-menu-button/paper-menu-button.html">
 
 <link rel="import" href="../util/rompe-cadena.html">
 <link rel="import" href="./character-favorite.html">
@@ -14,49 +15,49 @@
 				color: white;
 				--paper-card-background-color: lightslategrey;
 			}
-			character-favorite{
+			paper-menu-button{
 				position: absolute;
-    		top: 0px;
-    		right: 0px;
 			}
-			.card-content p {
-				font-size: .8em;
+			paper-menu-button{
+				top: 1.2em;
+				right: 0px;
+				--paper-menu-button-dropdown:{
+					color: grey;
+				}
 			}
 			p{
 				text-align: center;
 			}
+			ul{
+				list-style: none;
+    		margin: 0px;
+    		padding: 5px;
+			}
 		</style>
 
-       <!--  <paper-card heading="[[character.name]]"
-				image="[[character.thumbnail.path]]/landscape_medium.[[character.thumbnail.extension]]">
-            <div class="card-content">
-                <h3>[[character.name]]</h3>
-                <p>
-                    <rompe-cadena
-                    str="[[character.description]]"
-                    len="50"
-                    ></rompe-cadena>
-                    <p hidden="[[character.description]]">Without description</p>
-                </p>
-            </div>
-            <div class="card-actions">
-                <paper-icon-button icon="star"></paper-icon-button>
-								<character-favorite
+		<paper-card class="character" id="[[character.id]]" image="[[character.thumbnail.path]]/landscape_xlarge.[[character.thumbnail.extension]]">
+			<p><rompe-cadena str="[[character.name]]"></rompe-cadena></p>
+				<!--	<character-favorite
 									is-fav="[[isFav]]"
 									on-tap="toggleFav"
 									id="[[character.id]]"
-								></character-favorite>
-            </div>
-        </paper-card> -->
-				<paper-card class="character" id="[[character.id]]" image="[[character.thumbnail.path]]/landscape_xlarge.[[character.thumbnail.extension]]">
-					<!--<img src="[[character.thumbnail.path]]/landscape_xlarge.[[character.thumbnail.extension]]" alt="[[character.name]"/> -->
-					<p><rompe-cadena str="[[character.name]]"></rompe-cadena></p>
-					<character-favorite
-									is-fav="[[isFav]]"
-									on-tap="toggleFav"
-									id="[[character.id]]"
-				  ></character-favorite>
-				</paper-card>
+				  ></character-favorite> -->
+					<paper-menu-button>
+						<paper-icon-button icon="icons:more-vert" class="dropdown-trigger"></paper-icon-button>
+						<ul class="dropdown-content">
+								<li>
+									<character-favorite
+										is-fav="[[isFav]]"
+										on-tap="toggleFav"
+										id="[[character.id]]"
+				  				></character-favorite>
+							</li>
+							<li>Settings</li>
+							<li>Help</li>
+						</ul>
+					</paper-menu-button>
+					
+			</paper-card>
 
 	</template>
 
