@@ -10,38 +10,25 @@
 			:host {
 				display: flex;
 			}
-			
 			paper-card {
-				width: 250px;
-				--paper-card-header-image: {
-					width: 250px;
-				}
-				--paper-card-header-image: {
-					max-height: 220px;
-				}
+				color: white;
+				--paper-card-background-color: lightslategrey;
 			}
-			
-			h3 {
-				@apply(--paper-font-headline);
-				color: var(--default-primary-color);
-				font-size: 1em;
-				font-family: roboto, sans-serif;
+			character-favorite{
+				position: absolute;
+    		top: 0px;
+    		right: 0px;
 			}
-			
 			.card-content p {
 				font-size: .8em;
 			}
-			
-			.sindescripcion {
-				color: #999;
-			}
-			
-			.card-actions {
-				color: #D7CCC8;
+			p{
+				text-align: center;
 			}
 		</style>
 
-        <paper-card image="[[character.thumbnail.path]].[[character.thumbnail.extension]]">
+       <!--  <paper-card heading="[[character.name]]"
+				image="[[character.thumbnail.path]]/landscape_medium.[[character.thumbnail.extension]]">
             <div class="card-content">
                 <h3>[[character.name]]</h3>
                 <p>
@@ -53,14 +40,23 @@
                 </p>
             </div>
             <div class="card-actions">
-                <!-- <paper-icon-button icon="star"></paper-icon-button> -->
-				<character-favorite
-					is-fav="[[isFav]]"
-					on-tap="toggleFav"
-					id="[[character.id]]"
-				></character-favorite>
+                <paper-icon-button icon="star"></paper-icon-button>
+								<character-favorite
+									is-fav="[[isFav]]"
+									on-tap="toggleFav"
+									id="[[character.id]]"
+								></character-favorite>
             </div>
-        </paper-card>
+        </paper-card> -->
+				<paper-card class="character" id="[[character.id]]" image="[[character.thumbnail.path]]/landscape_xlarge.[[character.thumbnail.extension]]">
+					<!--<img src="[[character.thumbnail.path]]/landscape_xlarge.[[character.thumbnail.extension]]" alt="[[character.name]"/> -->
+					<p><rompe-cadena str="[[character.name]]"></rompe-cadena></p>
+					<character-favorite
+									is-fav="[[isFav]]"
+									on-tap="toggleFav"
+									id="[[character.id]]"
+				  ></character-favorite>
+				</paper-card>
 
 	</template>
 
@@ -68,12 +64,12 @@
     Polymer({
       is: 'character-card',
       properties: {
-          character: Object,
-		  favoritos: Array,
-		  isFav: {
-			  type: Boolean,
-			  value: false
-		  }
+				character: Object,
+				favoritos: Array,
+				isFav: {
+					type: Boolean,
+					value: false
+				}
       },
 	  
       observers: [

@@ -1,7 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <dom-module id="rompe-cadena">
   <template>
-    <span>{{recorte}}</span> <!-- ejecuta la propiedad recorte -->
+    <span>[[name]]<br/>[[subname]]</span> <!-- ejecuta la propiedad recorte -->
   </template>
   <script>
    Polymer({
@@ -15,17 +15,22 @@
          type: String,
          value: ''
        },
-       recorte: { 
+        subname:{
          type: String,
-         computed: 'calculaRecorte(len, str)' // Propiedad computada, ejecuta un metodo
+         value: ''
+       },
+       name: { 
+         type: Array,
+         computed: 'calculaRecorte(str,subname)' // Propiedad computada, ejecuta un metodo
        }
      },
-     calculaRecorte(len, str){
-       if (str.length <= len || len == 0) {
-         return str;
-       }
-       var recortada = str.substr(0, len);
-       return recortada.substr(0, Math.min(recortada.length, recortada.lastIndexOf(' '))) + '...';
+     calculaRecorte(str,subname){
+        var index = str.indexOf('(');
+        if(index>0){
+          this.subname = str.substring(index,str.length);
+          return str.substring(0,index);
+        }
+        return str;
      }
    });
   </script>

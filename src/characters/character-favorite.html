@@ -8,12 +8,12 @@
         display: block;
       }
       .favorito {
-        color: #ffd601;
+        color: #e92127;
       }
     </style>
     <paper-icon-button 
-      id="star" 
-      icon="star"
+      id="favorite" 
+      icon="favorite"
     ></paper-icon-button>
 
   </template>
@@ -28,7 +28,7 @@
         }
       },
       cambiarClass: function(isFav) {
-        this.toggleClass('favorito', isFav, this.$.star);
+        this.toggleClass('favorito', isFav, this.$.favorite);
       }
     });
   </script>
