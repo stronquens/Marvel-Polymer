@@ -8,11 +8,15 @@
         display: block;
       }
       .favorito {
-        color: #ffd601;
+        color: #e92127;
+      }
+      span{
+        margin: 0.2em;
       }
     </style>
-    <paper-icon-button id="star" icon="star"></paper-icon-button>
+    <paper-icon-button id="favorite" icon="favorite"></paper-icon-button>
+    <span>Add to favorites</span>
 
   </template>
-  <script>Polymer({is:"character-favorite",properties:{isFav:{type:Boolean,value:!1,observer:"cambiarClass"}},cambiarClass:function(a){this.toggleClass("favorito",a,this.$.star)}});</script>
+  <script>Polymer({is:"character-favorite",properties:{isFav:{type:Boolean,value:!1,observer:"cambiarClass"}},cambiarClass:function(a){this.toggleClass("favorito",a,this.$.favorite)}});</script>
 </dom-module></body></html>

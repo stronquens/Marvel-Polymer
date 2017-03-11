@@ -7,24 +7,24 @@
    Polymer({
      is: 'rompe-cadena',
      properties: {
-       len: { // Propiedad con un valor por defecto
+        len: { // Propiedad con un valor por defecto
          type: Number,
          value: 20
        },
-       str: { // Propiedad con un valor por defecto
+        str: { // Propiedad con un valor por defecto
          type: String,
          value: ''
        },
-        subname:{
+        subname: {
          type: String,
          value: ''
        },
-       name: { 
+        name: { 
          type: Array,
          computed: 'calculaRecorte(str,subname)' // Propiedad computada, ejecuta un metodo
        }
      },
-     calculaRecorte(str,subname){
+     calculaRecorte: function(str,subname){
         var index = str.indexOf('(');
         if(index>0){
           this.subname = str.substring(index,str.length);

@@ -3,16 +3,16 @@
 </head><body><dom-module id="character-list">
 	<template>
 		<style>
-			:host {
-				display: flex;
+			:host{
+				display: inline-flex;
 				flex-wrap: wrap;
-				justify-content: space-around;
+				justify-content: center;
+				margin-bottom: 2em;
 			}
 			character-card{
-				margin: 10px;
+				margin: 1em;
 			}
 		</style>
-
 		<template is="dom-repeat" items="[[characters]]" as="character">
 				<character-card character="[[character]]" favoritos="[[favoritos]]"></character-card>
 		</template>

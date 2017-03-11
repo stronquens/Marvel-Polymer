@@ -1,8 +1,7 @@
 <html><head></head><body><dom-module id="character-search">
   <template>
-    <style>
-      :host {
-        display: block;
+    <style include="shared-styles">
+      .card {
         @apply(--layout-horizontal);
       }
       p {
@@ -15,19 +14,22 @@
         margin: 15px 0 0 10px;
       }
       .lupa {
-        width: 15%;
         display: flex;
       }
     </style>
-    <div class="campo">
-      <paper-input label="Buscar" value="{{query}}" on-keydown="checkForEnter"></paper-input>
-    </div>
-    <div class="lupa">
-      <div hidden="[[loading]]">
-        <paper-icon-button icon="search" on-tap="search"></paper-icon-button>
+
+    <div class="card">
+      <div class="campo">
+        <paper-input label="Buscar" value="{{query}}" on-keydown="checkForEnter"></paper-input>
       </div>
-      <paper-spinner active="[[loading]]"></paper-spinner>
-    </div> 
+      <div class="lupa">
+        <div hidden="[[loading]]">
+          <paper-icon-button icon="search" on-tap="search"></paper-icon-button>
+        </div>
+        <paper-spinner active="[[loading]]"></paper-spinner>
+      </div> 
+    </div>
+
   </template>
   <script>Polymer({is:"character-search",properties:{query:{type:String,value:""},loading:Boolean},search:function(){this.fire("do-search",this.query)},checkForEnter:function(e){13===e.keyCode&&this.search()}});</script>
 </dom-module></body></html>

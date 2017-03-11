@@ -46,8 +46,8 @@
         data="{{favoritos}}"
       ></app-localstorage-document>
 
-			<h1>Personajes</h1>
-
+			<h1>Characters</h1>
+      <hr/>
       <character-search 
         query="[[query]]"
         on-do-search="doSearch"
@@ -68,7 +68,7 @@
         response: Object,
         query: {
           type: String,
-          value: "iron man"
+          value: "iron"
         },
         favoritos: {
           type: Array,

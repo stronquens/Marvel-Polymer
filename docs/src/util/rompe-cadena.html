@@ -1,32 +1,7 @@
 <html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
 </head><body><dom-module id="rompe-cadena">
   <template>
-    <span>{{recorte}}</span> 
+    <span>[[name]]<br>[[subname]]</span> 
   </template>
-  <script>
-   Polymer({
-     is: 'rompe-cadena',
-     properties: {
-       len: { // Propiedad con un valor por defecto
-         type: Number,
-         value: 20
-       },
-       str: { // Propiedad con un valor por defecto
-         type: String,
-         value: ''
-       },
-       recorte: { 
-         type: String,
-         computed: 'calculaRecorte(len, str)' // Propiedad computada, ejecuta un metodo
-       }
-     },
-     calculaRecorte(len, str){
-       if (str.length <= len || len == 0) {
-         return str;
-       }
-       var recortada = str.substr(0, len);
-       return recortada.substr(0, Math.min(recortada.length, recortada.lastIndexOf(' '))) + '...';
-     }
-   });
-  </script>
+  <script>Polymer({is:"rompe-cadena",properties:{len:{type:Number,value:20},str:{type:String,value:""},subname:{type:String,value:""},name:{type:Array,computed:"calculaRecorte(str,subname)"}},calculaRecorte:function(e,r){var t=e.indexOf("(");return t>0?(this.subname=e.substring(t,e.length),e.substring(0,t)):e}});</script>
 </dom-module></body></html>

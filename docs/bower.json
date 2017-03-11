@@ -21,7 +21,8 @@
     "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
     "paper-input": "PolymerElements/paper-input#^1.1.20",
     "app-storage": "PolymerElements/app-storage#^0.9.7",
-    "paper-tabs": "PolymerElements/paper-tabs#^1.6.3"
+    "paper-tabs": "PolymerElements/paper-tabs#^1.6.3",
+    "paper-menu-button": "PolymerElements/paper-menu-button#^1.5.2"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

@@ -19,7 +19,7 @@
 				position: absolute;
 			}
 			paper-menu-button{
-				bottom: .2em;
+				top: .2em;
 				right: 0px;
 				--paper-menu-button-dropdown:{
 					color: grey;
@@ -37,6 +37,11 @@
 			span{
         margin: 0.2em;
       }
+			@media only screen and (max-width: 480px){
+				:host{
+					width: 40vw;
+				}
+			}
 		</style>
 
 		<paper-card 
