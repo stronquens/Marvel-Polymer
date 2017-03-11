@@ -19,7 +19,7 @@
 				position: absolute;
 			}
 			paper-menu-button{
-				top: 1.2em;
+				bottom: .2em;
 				right: 0px;
 				--paper-menu-button-dropdown:{
 					color: grey;
@@ -27,21 +27,27 @@
 			}
 			p{
 				text-align: center;
+				font-size: .8rem;
 			}
 			ul{
 				list-style: none;
     		margin: 0px;
     		padding: 5px;
 			}
+			span{
+        margin: 0.2em;
+      }
 		</style>
 
-		<paper-card class="character" id="[[character.id]]" image="[[character.thumbnail.path]]/landscape_xlarge.[[character.thumbnail.extension]]">
-			<p><rompe-cadena str="[[character.name]]"></rompe-cadena></p>
-				<!--	<character-favorite
-									is-fav="[[isFav]]"
-									on-tap="toggleFav"
-									id="[[character.id]]"
-				  ></character-favorite> -->
+		<paper-card 
+		elevation="[[shadow]]" 
+		animated-shadow
+		class="character" id="[[character.id]]" 
+		image="[[character.thumbnail.path]]/landscape_xlarge.[[character.thumbnail.extension]]"
+		>
+			<p>
+				<rompe-cadena str="[[character.name]]"></rompe-cadena>
+			</p>
 					<paper-menu-button>
 						<paper-icon-button icon="icons:more-vert" class="dropdown-trigger"></paper-icon-button>
 						<ul class="dropdown-content">
@@ -52,8 +58,20 @@
 										id="[[character.id]]"
 				  				></character-favorite>
 							</li>
-							<li>Settings</li>
-							<li>Help</li>
+							<li>
+								<paper-icon-button 
+      						id="book" 
+      						icon="bookmark"
+    						></paper-icon-button>
+    						<span>Add to list</span>
+							</li>
+							<li>
+								<paper-icon-button 
+      						id="input" 
+      						icon="input"
+    						></paper-icon-button>
+    						<span>Follow</span>
+							</li>
 						</ul>
 					</paper-menu-button>
 					
@@ -64,9 +82,17 @@
 	<script>
     Polymer({
       is: 'character-card',
+			listeners: {
+        mouseover: '_shadowHover',
+        mouseout: '_shadowHover',
+      },
       properties: {
 				character: Object,
 				favoritos: Array,
+				shadow: {
+					type: Number,
+					value: 2
+				},
 				isFav: {
 					type: Boolean,
 					value: false
@@ -90,7 +116,14 @@
           isFav: this.isFav,
           id: this.character.id
         })
-      }
+      },
+			_shadowHover: function(e){
+				if(this.shadow==5) {
+					this.shadow=2;
+					}	else{ 
+					this.shadow=5;
+					}
+			}
 
     });
   </script>
