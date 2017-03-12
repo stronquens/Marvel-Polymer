@@ -12,6 +12,11 @@
 			character-card{
 				margin: 1em;
 			}
+			@media only screen and (max-width: 480px){
+				character-card{
+					margin: .4em;
+				}
+			}
 		</style>
 		<template is="dom-repeat" items="[[characters]]" as="character">
 				<character-card character="[[character]]" favoritos="[[favoritos]]"></character-card>
